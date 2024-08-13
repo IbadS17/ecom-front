@@ -1,0 +1,465 @@
+<body class="bg-gray-100">
+  <!-- Main Container -->
+  <div class="container mx-auto p-4 md:p-8">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-gray-600 mb-4">
+      <a href="#" class="hover:underline">Home</a> &gt;
+      <a href="#" class="hover:underline">Clothing</a> &gt;
+      <a href="#" class="hover:underline">Men Clothing</a> &gt;
+      <span class="text-gray-500">Jersey</span>
+    </nav>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Product Image Section -->
+      <div class="col-span-1 lg:col-span-1">
+        <div class="grid grid-cols-2 gap-2">
+          <!-- Large Image -->
+          <div class="col-span-2">
+            <img
+              id="mainImage"
+              src="https://picsum.photos/600/400"
+              alt="Product Image"
+              class="w-full h-auto object-cover rounded-lg"
+            />
+          </div>
+          <!-- Smaller Images -->
+          <img
+            src="https://picsum.photos/500/400"
+            alt="Product Thumbnail"
+            class="thumbnail w-full h-full object-cover rounded-lg cursor-pointer"
+          />
+          <img
+            src="https://picsum.photos/400/400"
+            alt="Product Thumbnail"
+            class="thumbnail w-full h-full object-cover rounded-lg cursor-pointer"
+          />
+          <img
+            src="https://picsum.photos/700/400"
+            alt="Product Thumbnail"
+            class="thumbnail w-full h-full object-cover rounded-lg cursor-pointer"
+          />
+          <img
+            src="https://picsum.photos/600/400"
+            alt="Product Thumbnail"
+            class="thumbnail w-full h-full object-cover rounded-lg cursor-pointer"
+          />
+        </div>
+      </div>
+      <!-- Product Details Section -->
+      <div class="col-span-1 lg:col-span-2">
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+          <!-- Product Title -->
+          <h1 class="text-2xl font-bold mb-2">
+            {{ productdetail.title }}
+          </h1>
+          <!-- Price -->
+          <div class="flex items-baseline mb-4">
+            <span class="text-xl text-gray-500 line-through">MRP ₹1,299</span>
+            <span class="text-3xl font-bold text-red-600 ml-2">{{
+              productdetail.discountedPrice
+            }}</span>
+            <span class="text-sm text-green-500 ml-2"
+              >inclusive of all taxes</span
+            >
+          </div>
+          <!-- Size Selection -->
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2"
+              >Select Size</label
+            >
+            <div class="flex flex-wrap gap-2">
+              <button
+                class="size-button flex-1 bg-gray-100 px-4 py-2 rounded-full border hover:border-pink-500 focus:outline-none"
+                onclick="toggleActive(this)"
+              >
+                XS
+              </button>
+              <button
+                class="size-button flex-1 bg-gray-100 px-4 py-2 rounded-full border hover:border-pink-500 focus:outline-none"
+                onclick="toggleActive(this)"
+              >
+                S
+              </button>
+              <button
+                class="size-button flex-1 bg-gray-100 px-4 py-2 rounded-full border hover:border-pink-500 focus:outline-none"
+                onclick="toggleActive(this)"
+              >
+                M
+              </button>
+              <button
+                class="size-button flex-1 bg-gray-100 px-4 py-2 rounded-full border hover:border-pink-500 focus:outline-none"
+                onclick="toggleActive(this)"
+              >
+                L
+              </button>
+              <button
+                class="size-button flex-1 bg-gray-100 px-4 py-2 rounded-full border hover:border-pink-500 focus:outline-none"
+                onclick="toggleActive(this)"
+              >
+                XL
+              </button>
+              <button
+                class="size-button flex-1 bg-gray-100 px-4 py-2 rounded-full border hover:border-pink-500 focus:outline-none"
+                onclick="toggleActive(this)"
+              >
+                XXL
+              </button>
+              <button
+                class="size-button flex-1 bg-gray-100 px-4 py-2 rounded-full border hover:border-pink-500 focus:outline-none"
+                onclick="toggleActive(this)"
+              >
+                3XL
+              </button>
+            </div>
+          </div>
+
+          <!-- Add to Cart and Wishlist Buttons -->
+          <div class="flex space-x-4 mb-4">
+            <button
+              class="w-full bg-pink-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-pink-600 transition duration-200 ease-in-out"
+            >
+              <i class="fa-solid fa-bag-shopping"></i> Add to Bag
+            </button>
+
+            <button
+              class="w-full bg-gray-200 text-gray-800 px-4 py-2 rounded-lg shadow-lg hover:bg-gray-300 transition duration-200 ease-in-out"
+            >
+              <i class="fa-regular fa-heart"></i> Wishlist
+            </button>
+          </div>
+          <!-- Delivery Options -->
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2"
+              >Delivery Options</label
+            >
+            <input
+              type="text"
+              placeholder="Enter PIN Code"
+              class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 font-bold focus:ring-pink-500"
+            />
+            <div class="flex items-center mt-2 text-sm text-gray-600">
+              <span class="mr-2 text-green-500">✓</span>
+              <span>400070 (Ibaad)</span>
+              <a href="#" class="ml-auto text-pink-500 hover:underline"
+                >Change</a
+              >
+            </div>
+          </div>
+          <div class="text-sm text-gray-600 p-4">
+            <p class="mb-1 p-2 font-bold flex items-center">
+              <i class="fa-solid fa-truck text-xl pr-2"></i>Get it by Tue, Aug
+              13
+            </p>
+            <p class="mb-1 p-2 font-bold flex items-center">
+              <i class="fa-solid fa-money-bill text-xl pr-2"></i>Pay on delivery
+              available
+            </p>
+            <p class="p-2 font-bold flex items-center">
+              <i class="fa-solid fa-arrow-right-arrow-left pr-2 text-xl"></i>
+              Easy 14 days return & exchange available
+            </p>
+          </div>
+          <div>
+            <p class="">100% Original Products</p>
+          </div>
+
+          <div class="container mx-auto p-4 md:p-2">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <p class="text-lg font-semibold text-gray-800">
+                10% Instant Discount on RuPay Credit Card & Netbanking.
+              </p>
+              <ul class="text-gray-700 list-disc list-inside ml-4">
+                <li>Min Spend ₹3,500; Max Discount ₹1,000.</li>
+              </ul>
+              <a
+                href="#"
+                class="text-pink-500 hover:underline font-medium mt-2 block"
+                >Terms & Conditions</a
+              >
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <p class="text-lg font-semibold text-gray-800">
+                10% Instant Discount on RuPay Credit Card & Netbanking.
+              </p>
+              <ul class="text-gray-700 list-disc list-inside ml-4">
+                <li>Min Spend ₹3,500; Max Discount ₹1,000.</li>
+              </ul>
+              <a
+                href="#"
+                class="text-pink-500 hover:underline font-medium mt-2 block"
+                >Terms & Conditions</a
+              >
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <p class="text-lg font-semibold text-gray-800">
+                10% Instant Discount on RuPay Credit Card & Netbanking.
+              </p>
+              <ul class="text-gray-700 list-disc list-inside ml-4">
+                <li>Min Spend ₹3,500; Max Discount ₹1,000.</li>
+              </ul>
+              <a
+                href="#"
+                class="text-pink-500 hover:underline font-medium mt-2 block"
+                >Terms & Conditions</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto pt-2 md:p-2">
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <!-- Product Details -->
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">
+          PRODUCT DETAILS
+        </h2>
+        <ul class="list-none text-gray-700 space-y-2 mb-6">
+          <li>Navy blue Tshirt for men</li>
+          <li>Sports and team jersey printed</li>
+          <li>Regular length</li>
+          <li>Round neck</li>
+          <li>Short, raglan sleeves</li>
+          <li>Knitted polyester fabric</li>
+        </ul>
+
+        <!-- Size & Fit -->
+        <h3 class="text-md font-medium text-gray-800 mb-2">Size & Fit</h3>
+        <p class="text-gray-700 mb-4">
+          Regular Fit<br />
+          The model (height 6') is wearing a size M
+        </p>
+
+        <!-- Material & Care -->
+        <h3 class="text-md font-medium text-gray-800 mb-2">Material & Care</h3>
+        <p class="text-gray-700 mb-4">
+          Buy The Official Men Olympics 2024 Team India Replica Jersey.
+        </p>
+
+        <!-- Specifications -->
+        <h3 class="text-md font-medium text-gray-800 mb-2">Specifications</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-gray-700 mb-4">
+            <tbody>
+              <!-- Existing rows here -->
+              <tr>
+                <td class="font-medium py-2 px-4 border-b">Care for me</td>
+                <td class="py-2 px-4 border-b">
+                  Follow the garment wash care label<br />
+                  Can be tumble dried in a cool setting if machine washed<br />
+                  Prevent static build-up by drying while damp<br />
+                  Use low heat to iron
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium py-2 px-4 border-b">Fabric</td>
+                <td class="py-2 px-4 border-b">Polyester</td>
+              </tr>
+              <!-- Additional rows that will be hidden initially -->
+              <tr class="hidden more-info">
+                <td class="font-medium py-2 px-4 border-b">Fit</td>
+                <td class="py-2 px-4 border-b">Regular Fit</td>
+              </tr>
+              <tr class="hidden more-info">
+                <td class="font-medium py-2 px-4 border-b">Length</td>
+                <td class="py-2 px-4 border-b">Regular</td>
+              </tr>
+              <tr class="hidden more-info">
+                <td class="font-medium py-2 px-4 border-b">Main Trend</td>
+                <td class="py-2 px-4 border-b">Typography or Slogan Print</td>
+              </tr>
+              <tr class="hidden more-info">
+                <td class="font-medium py-2 px-4 border-b">Multipack Set</td>
+                <td class="py-2 px-4 border-b">Single</td>
+              </tr>
+              <tr class="hidden more-info">
+                <td class="font-medium py-2 px-4 border-b">Neck</td>
+                <td class="py-2 px-4 border-b">Round Neck</td>
+              </tr>
+              <tr class="hidden more-info">
+                <td class="font-medium py-2 px-4 border-b">Number of Items</td>
+                <td class="py-2 px-4 border-b">1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- See More Button -->
+        <a
+          id="seeMoreBtn"
+          href="#"
+          class="text-pink-500 hover:underline font-medium block mb-4"
+          >See More</a
+        >
+
+        <!-- Product Code & Seller -->
+        <div class="text-gray-800 mb-4">
+          <p>Product Code: <span class="font-semibold">30408976</span></p>
+        </div>
+        <div class="text-gray-800">
+          <p>
+            Seller:
+            <span class="font-semibold text-pink-500"
+              >SPORTA TECHNOLOGIES PRIVATE LIMITED</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto p-4">
+    <h2 class="text-lg font-semibold text-gray-800 mb-4">SIMILAR PRODUCTS</h2>
+    <div class="overflow-x-auto"></div>
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <!-- Repeat this block for each product -->
+      <div class="bg-white rounded-lg shadow-sm cursor-pointer hover:shadow-xl">
+        <img
+          src="https://picsum.photos/600/400"
+          alt="Product 1"
+          class="w-full h-48 object-cover rounded-t-lg"
+          loading="lazy"
+        />
+        <div class="p-4">
+          <h3 class="text-sm font-medium text-gray-800">Kook N Keech</h3>
+          <p class="text-xs text-gray-600 mb-2">
+            Pure Cotton Oversized T-shirt
+          </p>
+          <p class="text-sm font-semibold text-gray-800">Rs. 439</p>
+          <p class="text-xs text-gray-500 line-through">Rs. 1099</p>
+          <p class="text-xs text-red-500">(60% OFF)</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm cursor-pointer hover:shadow-xl">
+        <img
+          src="https://picsum.photos/600/400"
+          alt="Product 1"
+          class="w-full h-48 object-cover rounded-t-lg"
+          loading="lazy"
+        />
+        <div class="p-4">
+          <h3 class="text-sm font-medium text-gray-800">Kook N Keech</h3>
+          <p class="text-xs text-gray-600 mb-2">
+            Pure Cotton Oversized T-shirt
+          </p>
+          <p class="text-sm font-semibold text-gray-800">Rs. 439</p>
+          <p class="text-xs text-gray-500 line-through">Rs. 1099</p>
+          <p class="text-xs text-red-500">(60% OFF)</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm cursor-pointer hover:shadow-xl">
+        <img
+          src="https://picsum.photos/600/400"
+          alt="Product 1"
+          class="w-full h-48 object-cover rounded-t-lg"
+          loading="lazy"
+        />
+        <div class="p-4">
+          <h3 class="text-sm font-medium text-gray-800">Kook N Keech</h3>
+          <p class="text-xs text-gray-600 mb-2">
+            Pure Cotton Oversized T-shirt
+          </p>
+          <p class="text-sm font-semibold text-gray-800">Rs. 439</p>
+          <p class="text-xs text-gray-500 line-through">Rs. 1099</p>
+          <p class="text-xs text-red-500">(60% OFF)</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm cursor-pointer hover:shadow-xl">
+        <img
+          src="https://picsum.photos/600/400"
+          alt="Product 1"
+          class="w-full h-48 object-cover rounded-t-lg"
+          loading="lazy"
+        />
+        <div class="p-4">
+          <h3 class="text-sm font-medium text-gray-800">Kook N Keech</h3>
+          <p class="text-xs text-gray-600 mb-2">
+            Pure Cotton Oversized T-shirt
+          </p>
+          <p class="text-sm font-semibold text-gray-800">Rs. 439</p>
+          <p class="text-xs text-gray-500 line-through">Rs. 1099</p>
+          <p class="text-xs text-red-500">(60% OFF)</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm cursor-pointer hover:shadow-xl">
+        <img
+          src="https://picsum.photos/600/400"
+          alt="Product 1"
+          class="w-full h-48 object-cover rounded-t-lg"
+          loading="lazy"
+        />
+        <div class="p-4">
+          <h3 class="text-sm font-medium text-gray-800">Kook N Keech</h3>
+          <p class="text-xs text-gray-600 mb-2">
+            Pure Cotton Oversized T-shirt
+          </p>
+          <p class="text-sm font-semibold text-gray-800">Rs. 439</p>
+          <p class="text-xs text-gray-500 line-through">Rs. 1099</p>
+          <p class="text-xs text-red-500">(60% OFF)</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm cursor-pointer hover:shadow-xl">
+        <img
+          src="https://picsum.photos/600/400"
+          alt="Product 1"
+          class="w-full h-48 object-cover rounded-t-lg"
+          loading="lazy"
+        />
+        <div class="p-4">
+          <h3 class="text-sm font-medium text-gray-800">Kook N Keech</h3>
+          <p class="text-xs text-gray-600 mb-2">
+            Pure Cotton Oversized T-shirt
+          </p>
+          <p class="text-sm font-semibold text-gray-800">Rs. 439</p>
+          <p class="text-xs text-gray-500 line-through">Rs. 1099</p>
+          <p class="text-xs text-red-500">(60% OFF)</p>
+        </div>
+      </div>
+      <!-- End of product block -->
+    </div>
+  </div>
+  <script>
+    function toggleActive(element) {
+      // Remove active class from all buttons
+      const buttons = document.querySelectorAll(".size-button");
+      buttons.forEach((button) =>
+        button.classList.remove("bg-pink-500/20", "text-black", "font-bold")
+      );
+
+      // Add active class to the clicked button
+      element.classList.add("bg-pink-500/20", "text-black", "font-bold");
+    }
+
+    // Get the large image element
+    const mainImage = document.getElementById("mainImage");
+
+    // Get all thumbnail images
+    const thumbnails = document.querySelectorAll(".thumbnail");
+
+    // Loop through each thumbnail image
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener("click", function () {
+        // Set the src of the main image to the src of the clicked thumbnail
+        mainImage.src = this.src;
+      });
+    });
+
+    // Toggle see more button
+    document
+      .getElementById("seeMoreBtn")
+      .addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the default anchor behavior
+        var moreInfoRows = document.querySelectorAll(".more-info");
+
+        moreInfoRows.forEach(function (row) {
+          row.classList.toggle("hidden");
+        });
+
+        // Toggle button text
+        if (this.textContent === "See More") {
+          this.textContent = "See Less";
+        } else {
+          this.textContent = "See More";
+        }
+      });
+  </script>
+</body>

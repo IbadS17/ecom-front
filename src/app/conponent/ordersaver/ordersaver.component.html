@@ -1,0 +1,112 @@
+<div class="container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <!-- Left Column: Address Section -->
+  <div class="md:col-span-2">
+    <h2 class="text-xl font-bold mb-4">Select Delivery Address</h2>
+
+    <div class="border p-4 rounded-md shadow-lg">
+      <div class="flex items-center justify-between mb-2">
+        <!-- Checkbox with circle and pink-white combination -->
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id="address1"
+            class="appearance-none w-5 h-5 rounded-full bg-white border-2 border-pink-500 checked:bg-pink-500 checked:border-pink-500 focus:outline-none"
+          />
+
+          <label for="address1" class="ml-2 text-red-500 font-semibold">{{
+            address1.contactdetails.name
+          }}</label>
+        </div>
+        <span class="bg-green-200 text-green-700 text-xs px-2 py-1 rounded"
+          >HOME</span
+        >
+      </div>
+      <p class="text-sm text-gray-700 px-5 py-2">
+        {{ address1.address.addressdetails }} {{ address1.address.city }}<br />
+        {{ address1.address.city }}, {{ address1.address.state }} -
+        {{ address1.address.pincode }}<br />
+      </p>
+
+      <div class="py-2 px-5">
+        Mobile:
+        <span class="font-semibold">{{
+          address1.contactdetails.mobilenos
+        }}</span
+        ><br />
+      </div>
+      <span class="text-gray-500 py-4 px-5"
+        >• Pay on Delivery not available</span
+      >
+
+      <div class="mt-4 flex space-x-4 px-5">
+        <button
+          class="border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100"
+        >
+          Remove
+        </button>
+        <button
+          class="border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+    <div
+      class="border-2 border-gray-300 p-6 rounded-md border-dashed shadow-sm mt-4"
+    >
+      <button class="text-red-500 font-bold mt-auto">+ Add New Address</button>
+    </div>
+  </div>
+
+  <!-- Right Column: Product and Price Details -->
+  <div class="border p-4 rounded-md shadow-sm">
+    <h2 class="text-lg font-bold text-gray-600 mb-4">Delivery Estimates</h2>
+
+    <div class="flex items-center mb-4" *ngFor="let temp of cartItem">
+      <img
+        src="https://picsum.photos/200"
+        alt="Product 1"
+        class="w-12 h-12 mr-4"
+      />
+      <div>
+        <p class="text-sm">
+          Estimated delivery by
+          <span class="font-semibold">16 Aug 2024</span>
+        </p>
+      </div>
+    </div>
+
+    <hr class="border border-dashed my-3" />
+
+    <h2 class="text-lg font-bold mb-4 text-gray-600">
+      Price Details (2 items)
+    </h2>
+    <div class="flex justify-between mb-2">
+      <span>Total MRP</span>
+      <span>₹22,692</span>
+    </div>
+    <div class="flex justify-between mb-2">
+      <span>Discount on MRP</span>
+      <span class="text-green-600">- ₹4,340</span>
+    </div>
+    <div class="flex justify-between mb-2">
+      <span>Platform Fee <span class="text-blue-600">Know More</span></span>
+      <span>₹20</span>
+    </div>
+    <div class="flex justify-between mb-2">
+      <span>Shipping Fee <span class="text-blue-600">Know More</span></span>
+      <span class="text-green-600">FREE</span>
+    </div>
+    <div class="flex justify-between font-bold text-lg mt-4">
+      <span>Total Amount</span>
+      <span>₹18,372</span>
+    </div>
+
+    <button
+      (click)="saveOrder()"
+      class="bg-pink-500 text-white px-6 py-2 rounded-md w-full mt-6 hover:bg-pink-600"
+    >
+      Continue
+    </button>
+  </div>
+</div>

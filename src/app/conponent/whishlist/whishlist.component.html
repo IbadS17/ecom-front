@@ -1,0 +1,39 @@
+<div class="flex items-center py-8">
+  <h2 class="text-xl font-bold inline px-28 text-slate-800">My Wishlist</h2>
+  <span>{{ totalitemofwhislist }} items</span>
+</div>
+
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-4"
+>
+  <div
+    class="max-w-64 bg-white rounded-lg shadow-md m-4"
+    *ngFor="let temp of whishlist"
+  >
+    <div class="relative">
+      <img
+        class="w-full h-48 object-cover rounded-t-lg"
+        src="https://placehold.co/600x400?text=Shoes"
+        alt="Nike Women Black Revolution"
+      />
+      <button
+        (click)="deleteitemthis(temp)"
+        class="absolute top-2 right-2 rounded-full"
+      >
+        <i class="fa-regular fa-circle-xmark text-lg"></i>
+      </button>
+    </div>
+    <div class="text-center">
+      <h2 class="text-lg font-semibold text-gray-800 pt-4">
+        Like Women Black Revolut...
+      </h2>
+      <p class="text-xl font-bold text-black py-4">Rs.3,695</p>
+      <button
+        (click)="additemtocart(temp)"
+        class="border-t mt-4 w-full text-pink-500 font-bold hover:bg-gray-100 py-2"
+      >
+        MOVE TO BAG
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,171 @@
+<div class="bg-gray-100 flex justify-center items-center min-h-screen">
+  <div
+    class="container mx-auto flex flex-col lg:flex-row bg-white shadow-lg w-full lg:w-4/5"
+  >
+    <!-- Form Section -->
+    <div class="form-section w-full lg:w-1/2 p-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Contact Details</h2>
+      <form [formGroup]="MainCheckoutOform" (ngSubmit)="addAddress()">
+        <ng-container formGroupName="contactdetails">
+          <div class="floating-label mb-6">
+            <input
+              type="text"
+              placeholder=" "
+              id="name"
+              required
+              formControlName="name"
+              class="focus:ring-2 focus:ring-blue-500 px-4"
+            />
+            <label for="name">Name*</label>
+          </div>
+          <div class="floating-label mb-6">
+            <input
+              type="tel"
+              placeholder=" "
+              id="mobile"
+              required
+              formControlName="mobilenos"
+              class="focus:ring-2 focus:ring-blue-500 px-4"
+            />
+            <label for="mobile">Mobile No*</label>
+          </div>
+        </ng-container>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Address</h2>
+        <ng-container formGroupName="address">
+          <div class="floating-label mb-6">
+            <label #myval> Country</label>
+            <select
+              formControlName="country"
+              (change)="testercountry('address', myval)"
+            >
+              <option *ngFor="let temp of country" [ngValue]="temp.id">
+                {{ temp.name }}
+              </option>
+            </select>
+          </div>
+          <h2>states:</h2>
+
+          <div class="floating-label mb-6">
+            <select formControlName="state">
+              <option *ngFor="let temp of states" [ngValue]="temp.name">
+                {{ temp.name }}
+              </option>
+            </select>
+          </div>
+          <div class="floating-label mb-6">
+            <input
+              type="text"
+              placeholder=" "
+              id="pincode"
+              required
+              formControlName="pincode"
+              class="focus:ring-2 focus:ring-blue-500 px-4"
+            />
+            <label for="pincode">Pin Code*</label>
+          </div>
+          <div class="floating-label mb-6">
+            <input
+              type="text"
+              placeholder=" "
+              id="address"
+              required
+              formControlName="addressdetails"
+              class="focus:ring-2 focus:ring-blue-500 px-4"
+            />
+            <label for="address"
+              >Address (House No, Building, Street, Area)*</label
+            >
+          </div>
+
+          <div class="floating-label mb-6">
+            <input
+              type="text"
+              placeholder=" "
+              id="city"
+              formControlName="city"
+              class="focus:ring-2 focus:ring-blue-500 px-4"
+            />
+            <label for="city">City / District*</label>
+          </div>
+        </ng-container>
+
+        <div class="save-address mb-6">
+          <label class="block mb-2 font-medium text-gray-600"
+            >Save Address As</label
+          >
+          <div class="flex items-center mb-4">
+            <div
+              id="homeBtn"
+              class="qty-btn text-center rounded-full border-2 cursor-pointer px-6 m-2 py-1 border-gray-300"
+              style="background-color: white; color: black"
+              onclick="showOptions('home')"
+            >
+              Home
+            </div>
+            <div
+              id="workBtn"
+              class="qty-btn text-center rounded-full border-2 px-6 m-2 py-1 cursor-pointer border-gray-300"
+              style="background-color: white; color: black"
+              onclick="showOptions('work')"
+            >
+              Work
+            </div>
+          </div>
+          <div id="workOptions" class="hidden">
+            <div class="flex items-center mb-2">
+              <input type="checkbox" id="workOption1" class="mr-2" />
+              <label for="workOption1" class="text-gray-700"
+                >Open on Saturday</label
+              >
+            </div>
+            <div class="flex items-center mb-2">
+              <input type="checkbox" id="workOption2" class="mr-2" />
+              <label for="workOption2" class="text-gray-700"
+                >Open on Sunday</label
+              >
+            </div>
+          </div>
+          <div class="flex items-center py-4">
+            <input type="checkbox" id="default_address" class="mr-2" />
+            <label for="default_address" class="text-gray-600"
+              >Make this my default address</label
+            >
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full p-4 bg-pink-500 text-white rounded-lg font-semibold hover:bg-pink-600"
+        >
+          Add Address
+        </button>
+      </form>
+    </div>
+
+    <!-- Price Section -->
+    <div class="price-section w-full lg:w-1/2 bg-gray-100 text-left p-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+        Price Details (1 Item)
+      </h2>
+      <div class="price-details">
+        <div class="flex justify-between mb-4 text-lg">
+          <span>Total MRP</span>
+          <span>₹999</span>
+        </div>
+        <div class="flex justify-between mb-4 text-lg">
+          <span>Platform Fee</span>
+          <span>₹20</span>
+        </div>
+        <div class="flex justify-between mb-4 text-lg">
+          <span>Shipping Fee</span>
+          <span class="text-green-500">FREE</span>
+        </div>
+        <hr class="my-4" />
+        <div class="flex justify-between text-xl font-semibold">
+          <span>Total Amount</span>
+          <span>₹ {{ totalprice }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

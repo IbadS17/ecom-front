@@ -1,0 +1,27 @@
+<!-- CATEGORIES Section -->
+<h1 class="text-center text-5xl p-10 g_font font-bold text-slate-800">
+  Shop By Categories
+</h1>
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-4"
+>
+  <div
+    class="bg-orange-500 rounded-lg shadow-lg overflow-hidden"
+    *ngFor="let temp of cat"
+  >
+    <img
+      class="w-full"
+      src="https://placehold.co/380x284"
+      alt="Ethnic Wear Model"
+    />
+    <div class="p-4 flex flex-col items-center">
+      <h2 class="text-white text-lg font-bold text-center">{{ temp.name }}</h2>
+      <p class="text-white text-2xl font-extrabold text-center">50-80% OFF</p>
+      <a
+        [routerLink]="'/product/' + temp.name"
+        class="inline-block mt-2 bg-white text-orange-500 font-semibold py-2 px-4 rounded-lg hover:bg-orange-200"
+        >Shop Now</a
+      >
+    </div>
+  </div>
+</div>
